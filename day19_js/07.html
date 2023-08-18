@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="btn1">Li Tag 한번에 추가하기</button>
+    <button type="button" id="btn2">Li Tag 하나씩 추가하기</button>
+    <button type="button" id="btn3">Li Tag 한번에 추가하기</button>
+    <button type="button" id="btn4">Li Tag 하나씩 추가하기</button>
+    <ul id="ul"></ul>
+    <hr>
+    <ol id="ol"></ol>
+    <hr>
+    <ul id="ul2"></ul>
+    <hr>
+    <ol id="ol2"></ol>
+</body>
+<script>
+    const names = ['HTML','CSS','JavaScript','SQL'];
+    let i = 0;
+
+    document.getElementById('btn1').addEventListener('click', () => {
+        let name = '';
+        for (let j=0; j<names.length; j++) {
+            name += `<li>${names[j]}</li>`;
+        }
+        document.getElementById('ul').innerHTML = name;
+    });
+
+    document.getElementById('btn2').addEventListener('click', () => {
+        document.getElementById('ol').innerHTML += `<li>${names[i]}</li>`;
+        i++;
+        if (i>=names.length) {
+            i=0;
+        }
+    });
+
+    // appendchild 사용(ul의 자식으로 li를 넣어주겠다)
+    document.getElementById('btn3').addEventListener('click', () => {
+        let ul = document.getElementById('ul2');
+        names.forEach((elem)=>{
+            let li = document.createElement('li'); // str = `<li></li>`
+            li.innerText = elem; // str = `<li>${elem}</li>`
+            ul.appendChild(li); // innerHTML = str;
+        })
+    });
+
+    let idx = 0;
+    const ol2 = document.getElementById('ol2');
+    document.getElementById('btn4').addEventListener('click',()=>{
+        if(idx<names.length){
+            let li = document.createElement('li');
+            li.innerText = names[idx];
+            ol2.appendChild(li);
+            idx++;
+        }
+    });
+</script>
+</html>

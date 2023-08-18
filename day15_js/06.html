@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        input 2개 생성
+        과목, 점수
+        추가 버튼 => map 추가
+        출력 버튼 => map을 출력 ul=>li로 출력
+        결과 버튼 => 합계, 평균, 평가(80 이상이면 통과, 아니면 탈락) => h3
+     -->
+     과목 : <input type="text" id="subName"> <br>
+     점수 : <input type="text" id="subGr"> <br>
+     <br>
+     <button type="button" onclick="addMap()">추가</button>
+     <button type="button" onclick="printMap()">출력</button>
+     <button type="button" onclick="resultMap()">결과</button>
+     <ul id="forPrint"></ul>
+     <h3 id="result"></h3>
+
+     <script>
+        console.log(document.getElementById('subName').value);
+        const grade = new Map();
+        let subCount = 0;
+
+        function addMap(){
+            let sub = document.getElementById('subName').value;
+            let point = Number(document.getElementById('subGr').value);
+            grade.set(sub,point);
+        }
+
+        function printMap(){
+        grade.forEach(function(v,i,s){
+            forPrint.innerHTML += `<li>${i} : ${v}</li>`; 
+        })
+        }
+
+        function resultMap(){
+            let sum = 0;
+            let avg = 0;
+            grade.forEach(function(v,i,s){
+                subCount++;
+                sum += v; 
+            })
+            avg = sum / subCount;
+            if(avg>=80){
+                result.innerHTML += `평균 : ${avg} 통과`;
+            } else {
+                result.innerHTML += `평균 : ${avg} 탈락`;
+            }
+        }
+     </script>
+</body>
+</html>

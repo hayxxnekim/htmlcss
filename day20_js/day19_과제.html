@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title></title>
+</head>
+<body>
+ <img id="introimg" border="0">
+ <script>
+  let imgArray=["cat1.jpg", "cat2.jpg","cat3.jpg","cat4.jpg"];
+
+  function showImage(){
+   let imgNum=Math.round(Math.random()*3); //0 1 2 3
+   console.log(imgNum);
+   let objImg=document.getElementById("introimg");
+   objImg.src='/image/'+imgArray[imgNum];
+  
+   setTimeout(showImage,1000);
+  }
+  showImage();
+ </script>
+</body>
+</html>

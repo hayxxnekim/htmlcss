@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("---예제---");
+        // class User 생성
+        // 생성자로 name, birth를 받아서 멤버변수로 저장
+        // age() 나이를 리턴
+        // status() 성인인지 미성년자인지 콘솔에 출력
+        
+        let birthday = new Date('2009-01-01');
+        console.log(birthday.toLocaleDateString());
+
+        class User{
+            constructor(name,birth){
+                this.name = name;
+                this.birth = birth;
+            }
+
+            get age(){
+                let now = new Date();
+                now = Number(now.getFullYear());
+                // return now-Number((this.birth).substring(0,4));
+                // let age =  now-Number((this.birth).substring(0,4));
+                return now-Number((this.birth).substring(0,4));
+            }
+
+            get status(){
+                // let status = '';
+                // let age = this.age;
+                if(this.age>=20){
+                    return '성인';
+                }else{
+                    return '미성년자';
+                }
+            }
+        }
+
+    let hong = new User('hong', '20200101');
+    console.log(hong);
+    console.log(hong.age); // get일 경우 괄호X
+    console.log(hong.status);
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="f1()">랜덤 번호 6개 출력</button> <br><br>
+    <h3 id="print1"></h3>
+    <button type="button" onclick="f2()">당첨 번호 7개(마지막 보너스) 출력</button> <br><br>
+    <h3 id="print2"></h3>
+    <button type="button" onclick="f3()"> 결과 확인</button> <br><br>
+    <h3 id="print3"></h3>
+    <button type="button" onclick="window.location.reload()">reset</button> <br><br>
+
+    <script>
+        const ranSet = new Set();
+        const ansSet = new Set();
+
+        function f1(){
+            let cnt = 0;
+            while(cnt<6){
+                let random = Math.floor(Math.random()*45)+1;
+                ranSet.add(random);
+                cnt++
+                // document.getElementById('print1').innerHTML += `${random}  `;
+            }
+        }
+      
+        function f2(){
+            while(ranSet.size<=6){
+                let random = Math.floor(Math.random()*45)+1;
+                ansSet.add(random);
+                document.getElementById('print2').innerHTML += `${random}  `;
+            }
+        }
+    </script>
+</body>
+</html>

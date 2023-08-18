@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과제</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        h1{
+            text-align: center;
+            font-family: 'Hahmlet', serif;
+            font-size: 20px;
+            font-style: italic;
+            font-weight: 700;
+        }
+
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        ul{
+            margin-top: 35px;
+            text-align: center;
+            font-family: 'Hahmlet', serif;
+            font-size: 8px;
+            padding: 0px;
+        }
+        li{
+            list-style: none;
+            display: inline;
+            margin: 70px 70px auto;
+            cursor: pointer;
+        
+        }
+        .im{
+            margin-top: 130px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <a href="/day19_js/index.html"><h1>Travel</h1></a>
+    <ul>
+        <li class="se">SEOUL</li>
+        <li class="to">TOKYO</li>
+        <li class="sh">SHANGHAI</li>
+        <li class="ny">NEWYORK</li>
+        <li class="pr">PARIS</li>
+    </ul>
+    <div class="im"><img src="/day03/main.jpg" alt="none" width="300px" height="400px" id="img"></div>
+</body>
+<script>
+    // let img = document.getElementById('img');
+    document.getElementsByClassName('se')[0].addEventListener('click',()=>{
+        img.src='/day03/se.jpeg';
+    });
+    document.getElementsByClassName('to')[0].addEventListener('click', ()=>{
+        img.src='/day03/tk.jpeg';
+    });
+
+    document.getElementsByClassName('sh')[0].addEventListener('click', ()=>{
+        img.src='/day03/sh.jpeg';
+    });
+    document.getElementsByClassName('ny')[0].addEventListener('click', ()=>{
+        img.src='/day03/ny.jpeg';
+    });
+    document.getElementsByClassName('pr')[0].addEventListener('click', ()=>{
+        img.src='/day03/paris.jpeg';
+    });
+</script>
+</html>

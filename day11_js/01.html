@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나이 구하기</title>
+</head>
+<body>
+    이름 : <input type="text" id="name"> <br>
+    주민번호 : <input type="text" id="rNum"> <br>
+    <button type="button" onclick="print()">확인</button>
+
+    <h3 id="printAll">
+        <!-- 이름, 생년월일, 성별, 나이 -->
+    </h3>
+
+    <script>
+        // 오늘 날짜 리턴
+        // let now = new Date();
+        // console.log(now.getFullYear()); // 연도만 추출
+
+        function print() {
+            let name = document.getElementById('name').value; 
+            printAll.innerHTML = `<li>이름 : ${name}</li>`;
+
+            let birth =  document.getElementById('rNum').value;
+            birth = birth.slice(0,6);
+            printAll.innerHTML += `<li>생년월일 : ${birth}</li>`;
+
+            let gender = "";
+            if(document.getElementById('rNum').value.charAt(7)==1 || document.getElementById('rNum').value.charAt(7)==3){
+            gender = "남";
+            } else {
+            gender = "여";
+            }
+            printAll.innerHTML += `<li>성별 : ${gender}</li>`;
+
+            let age = document.getElementById('rNum').value.charAt(7);
+            // age = parseInt(age);
+            if(age=='3' || age=='4') {
+                age = "20"+document.getElementById('rNum').value.slice(0,2);
+            } else if (age=='1' || age=='2') {
+                age = "19"+document.getElementById('rNum').value.slice(0,2);
+            }
+            age = parseInt(age);
+            let now = new Date();
+            let calc = now.getFullYear(); // num
+            age = calc - age + 1;
+            printAll.innerHTML += `<li>나이 : ${age}</li>`;
+            // let age = birth.slice(0,2);
+            // age = "19"+age;
+            // age = parseInt(age);
+
+            // let now = new Date();
+            // let calc = now.getFullYear(); // num
+            // age = calc - age + 1;
+        }
+
+        // 오늘 날짜 반환
+        let today = new Date();
+        console.log(today); // Object
+        console.log(today.getFullYear()); // 년도
+        console.log(today.getMonth()+1); // 월(0~11월), +1
+        console.log(today.getDate()); // 일 반환 1~31
+        console.log(today.getDay()) // 요일 0(일)~6(토)
+
+        // getHours, minutes, seconds : 시분초 추출
+        let today2 = today.toLocaleDateString();
+        console.log(today2);
+
+        let time = today.toLocaleTimeString();
+        console.log(time);
+
+        console.log(today.toLocaleDateString());
+    </script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>과제</title>
+
+<style>
+
+@font-face {
+
+font-family: font;
+
+src: url(/font/Tektur/Tektur-VariableFont_wdth\,wght.ttf);
+
+}
+
+body{
+
+background-color: rgb(0, 0, 0);
+
+position: absolute;
+
+top: 50%;
+
+left: 50%;
+
+transform: translate(-50%,-50%);
+
+}
+
+h1{
+
+font-family: font;
+
+text-transform: uppercase;
+
+font-size: 70px;
+
+text-align: center;
+
+color: rgb(255, 0, 0);
+
+text-shadow: -2px -2px 0px rgb(255, 227, 150);
+
+}
+
+h3{
+
+font-family: font;
+
+text-align: center;
+
+margin-bottom: 50px;
+
+color: rgba(11, 150, 11, 0.655);
+
+/* color: rgb(255, 255, 138); */
+
+}
+
+.heroes{
+
+display: flex;
+
+justify-content: center;
+
+}
+
+.heroes div{
+
+/* 위아래 양쪽 */
+
+padding: 0px 40px;
+
+}
+
+.hName{
+
+font-family: font;
+
+text-transform: uppercase;
+
+font-size: 30px;
+
+font-weight: 700;
+
+margin: 0 30px 0 0;
+
+color: rgb(0, 47, 255);
+
+text-shadow: -1px -1px 0px rgb(2, 253, 86);
+
+}
+
+span, li{
+
+font-family: font;
+
+font-size: 12px;
+
+font-weight: 500;
+
+color: white;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1 id="header"></h1>
+
+<h3 id="middle"></h3>
+
+<div class="heroes">
+
+<div id="hero0"></div>
+
+<div id="hero1"></div>
+
+<div id="hero2"></div>
+
+</div>
+
+<script>
+
+let header = document.getElementById('header');
+
+let middle = document.getElementById('middle');
+
+fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+
+.then(resp => resp.json())
+
+.then(json => printHero(json));
+
+function printHero(jsonObj){
+
+header.innerText = jsonObj.squadName;
+
+middle.innerText = `Hometown: ${jsonObj.homeTown} // Formed: ${jsonObj.formed}`;
+
+for(let i=0; i<3; i++){
+
+let hero = document.getElementById(`hero${i}`);
+
+hero.innerHTML = `<p class="hName">${jsonObj.members[i].name}</p>`;
+
+hero.innerHTML += `<span>Secret identity: ${jsonObj.members[i].secretIdentity}</span><br>`;
+
+hero.innerHTML += `<span>Age: ${jsonObj.members[i].age}</span><br>`;
+
+hero.innerHTML += `<span>Superpowers:</span>`;
+
+for(let j=0; j<3; j++){
+
+hero.innerHTML += `<li>${jsonObj.members[i].powers[j]}</li>`;
+
+}
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>

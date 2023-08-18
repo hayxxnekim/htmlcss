@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        가위바위보 게임
+        컴퓨터가 가위1, 바위2, 보3 중 하나를 정하면 나도 가위, 바위, 보 중 하나를 선택 게임 -->
+    <!-- 가위바위보 버튼
+        승패에 대한 결과를 출력 총 5번 횟수
+        컴퓨터는 랜덤으로 가위, 바위, 보 중 하나를 선택
+        승률 : (이긴 횟수 / 전체 경기수) * 100 -->
+        <button type="button" onclick="play(1)">가위</button>
+        <button type="button" onclick="play(2)">바위</button>
+        <button type="button" onclick="play(3)">보</button>
+        <h3 id="result">
+            <!-- 결과 출력 라인 -->
+        </h3>
+        <script>
+            let user;
+            let com;
+            let random;
+            let win = 0;
+            let lose = 0;
+            let draw = 0;
+            let gameResult;
+            let cnt = 0;
+
+            function play(num) {
+                cnt++;
+                random = Math.floor(Math.random()*3)+1;
+                switch(random){
+                    case 1 : com = "가위"; break;
+                    case 2 : com = "바위"; break;
+                    case 3 : com = "보"; break;
+                }
+
+                switch(num){
+                    case 1 : user = "가위"; 
+                    // random == 1? draw++ : random==2? loser++ : winner++;
+                    break;
+
+                    case 2 : user = "바위"; 
+                    // random == 2? draw++ : random==3? loser++ : winner++;
+                    break;
+
+                    case 3 : user = "보"; 
+                    // random == 3? draw++ : random==1? loser++ : winner++;
+                    break;
+                }
+
+                if(random==num){
+                        draw++;
+                        gameResult = "비겼습니다";
+                } else if(random==1 && num==2){ // 1=가위, 2=바위, 3=보
+                        win++;
+                        gameResult = "이겼습니다";
+                } else if(random==1 && num==3){
+                        lose++;
+                        gameResult = "졌습니다";
+                } else if(random==2 && num==1){
+                        lose++;
+                        gameResult = "졌습니다";
+                } else if(random==2 && num==3){
+                        win++;
+                        gameResult = "이겼습니다";
+                } else if(random==3 && num==1){
+                        win++;
+                        gameResult = "이겼습니다";
+                } else if(random==3 && num==2){
+                        lose++;
+                        gameResult = "졌습니다";
+                    }
+
+                document.getElementById('result').innerHTML =
+                 `<p>당신 : ${user}</p>`;
+                document.getElementById('result').innerHTML += 
+                `<p>컴퓨터 : ${com}</p>`;
+                document.getElementById('result').innerHTML += 
+                `<p>${gameResult}</p>`;
+                document.getElementById('result').innerHTML += 
+                `<p>현재 전적</p>`;
+                document.getElementById('result').innerHTML += 
+                `<p>승 : ${win}</p>`;
+                document.getElementById('result').innerHTML += 
+                `<p>무 : ${draw}</p>`;
+                document.getElementById('result').innerHTML += 
+                `<p>패 : ${lose}</p>`;
+                document.getElementById('result').innerHTML += 
+                `<p>승률 : ${ win/cnt* 100} % </p>`;
+                
+            }        
+        </script>
+        
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .jump{
+            position: absolute;  
+            bottom: 0;
+            left: 10px;
+            animation-name: ju;
+            animation-duration: 1s; 
+            animation-iteration-count: infinite;
+            animation-timing-function: ease;
+        }
+        @keyframes ju{
+            from{
+                bottom: 0;
+            }
+            25%{
+                bottom: 15px;
+            }
+            50%{
+                bottom: 0px;
+            }
+            75%{
+                bottom: 30px;
+            }
+            to{
+                bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="jump">hi</div>
+</body>
+</html>

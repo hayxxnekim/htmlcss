@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .menu{
+            position: absolute;
+            /* top: 20px; */
+            width: 250px;
+            height: 40px;
+            background-color: white;
+            text-align: center;
+            /* padding: auto; */
+            line-height: 40px;
+
+        }
+        .m1{
+            border: 1px solid black;
+        }
+        .m2{
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+        }
+        .m3{
+            border: 1px solid black;
+        }
+        .m4{
+            border-bottom: 1px solid black;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+        }
+        .m1:hover{
+            background-color: cyan;
+        }
+        .m2:hover{
+            background-color: cyan;
+        }
+        .m3:hover{
+            background-color: cyan;
+        }
+        .m4:hover{
+            background-color: cyan;
+        }
+        .imgbox{
+            position: fixed;
+            /* top: 12px; */
+            right: -270px;
+           border: 1px solid black;
+           width: 1500px;
+           height: 900px;
+           position: relative;
+        }
+        .img{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+       <div class="m1">메뉴1</div>
+       <div class="m2">메뉴2</div>
+       <div class="m3">메뉴3</div>
+       <div class="m4">메뉴4</div>
+    </div>
+    <div class="imgbox">
+    <div class="img">
+        <img src="/day03/ny.jpeg" alt="" width="1500px" height="900px">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body{
+                margin: 0px;
+                padding: 0px;
+            }
+            div{
+                width: 100%;
+            }
+            .header{
+                height: 60px;
+                background-color: darkgray;
+                font-size: 30px;
+                padding-left: 10px;
+                line-height: 60px;
+                color: white;
+            }
+            .subject{
+                background-image: url(/day07/laptop.jpg);
+                background-size: 100% 400px;
+                background-repeat: no-repeat;
+                height: 400px;
+                background-position: center center;
+            }
+            .content{
+                /* margin-top: 50px; */
+                height: 200px;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            .content>strong{
+                font-size: 20px;
+            }
+            .content>p{
+                font-size: 15px;
+                color: gray;
+            }
+            .img2>a{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-decoration: none;
+                color: red;
+                font-weight: 900;
+            }
+            .img1{
+                background-image: url(/day07/monitor.jpg);
+                background-repeat: no-repeat;
+                height: 400px;
+                background-size: 100% 400px;
+                background-position: center center;
+            }
+            .img2{
+                position: relative;
+                background-image: url(/day07/keyboard.jpg);
+                background-repeat: no-repeat;
+                height: 400px;
+                background-size: 100% 400px;
+                background-position: center center;
+            }
+            .img3{
+                background-image: url(/day07/mouse.jpg);
+                background-repeat: no-repeat;
+                height: 400px;
+                background-size: 100% 400px;
+                background-position: center center;
+            }
+
+        @media screen and (min-width : 1200px) {
+            body{
+                margin: 0px;
+                padding: 0px;
+            }
+            div{
+                width: 100%;
+            }
+            .header{
+                height: 60px;
+                background-color: darkgray;
+                font-size: 30px;
+                padding-left: 10px;
+                line-height: 60px;
+                color: white;
+            }
+            .subject{
+                background-image: url(/day07/laptop.jpg);
+                background-repeat: no-repeat;
+                height: 400px;
+                float: left;
+                width: 50%;
+                
+            }
+            .content{
+                /* margin-top: 50px; */
+                float: right;
+                width: 50%;
+                height: 200px;
+            }
+            .content>strong{
+                font-size: 20px;
+            }
+            .content>p{
+                font-size: 15px;
+                color: gray;
+                
+            }
+            .img1{
+                background-repeat: no-repeat;
+                height: 200px;
+                width: 25%;
+                float: left;
+            }
+            .img2{
+                background-repeat: no-repeat;
+                height: 100px;
+                width: 25%;
+                float: right;
+            }
+            .img3{
+                background-repeat: no-repeat;
+                height: 100px;
+                width: 25%;
+                float: right;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header" id="top">IN'O</div>
+    <div class="subject"></div>
+    <div class="content">
+        <b>Portfolio</b> <br><br>
+        <strong>Make Hardware Soft</strong>
+        <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also</p>
+    </div>
+    <div class="sub img1"></div>
+    <div class="sub img2"><a href="#top">view more</a></div>
+    <div class="sub img3"></div>
+</body>
+</html>

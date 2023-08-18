@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <style>
+        body{
+            background-color: paleturquoise;
+        }
+        .container{
+            width: 300px;
+            /* 부모 요소는 자식 요소에 따라 높이 결정 */
+            /* 화면의 정중앙에 위치하기 위한 공식 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            background-color: whitesmoke;
+            text-align: center;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .text-field{
+            width: 100%;
+            font-size: 15px;
+            padding: 10px;
+            /* padding 포함 */
+            box-sizing: border-box;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            border: 0;
+            outline: none;
+        }
+        .btn-input{
+            width: 100%;
+            height: 37px;
+            box-sizing: border-box;
+            margin-bottom: 30px;
+            background-color: paleturquoise;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            color: whitesmoke;
+        }
+        .link>a{
+            text-decoration: none;
+            color: grey;
+        }
+    </style>
+</head>
+<body>
+    <!-- 최상위박스 -->
+    <div class="container">
+        <form action="">
+            <input type="text" class="text-field" name="id" placeholder="아이디">
+            <input type="password" class="text-field" name="pw" placeholder="비밀번호">
+            <input type="submit" class="btn-input" value="로그인">
+        </form>
+        <div class="link">
+            <a href="#">비밀번호를 잊어버리셨나요</a>
+        </div>
+    </div>
+</body>
+</html>

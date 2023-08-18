@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="makeQ()">문제 출제</button>
+    <ol id="qlist"> </ol>
+    <h3 id="check"></h3>
+    <button type="button" onclick="check()">정답 확인</button>
+    <script>
+        let ran1 = 0;
+        let ran2 = 0;
+        let answer = 0;
+        let cnt = 0;
+        const answerArr = [];
+        const userArr = [];
+
+        function makeQ(){
+            for(let i=0; i<10; i++){
+                ran1 = Math.floor(Math.random()*8)+2;
+                ran2 = Math.floor(Math.random()*8)+2;
+                answer = ran1*ran2;
+                answerArr.push(answer);
+                document.getElementById('qlist').innerHTML +=  `<li>${ran1} x ${ran2} = <input type="text" id="user${i}"></li>`; 
+                // console.log(index);
+            }
+        }
+
+        function check() {
+            for(let i=0; i<10; i++){
+                userArr.push(document.getElementById(`user${i}`).value);
+            }
+            // console.log(userArr);
+            for(let i=0; i<10; i++){
+                document.getElementById(`user${i}`).style.setProperty("color", "white");
+                document.getElementById(`user${i}`).style.setProperty("text-align", "center");
+                    if(userArr[i]==answerArr[i]){
+                        document.getElementById(`user${i}`).style.setProperty("background-color", "green");
+                        document.getElementById(`user${i}`).value = "정답";
+                        cnt++;
+                    }else{
+                        document.getElementById(`user${i}`).style.setProperty("background-color", "red");
+                        document.getElementById(`user${i}`).value = "오답";
+                    }
+            document.getElementById('check').innerText = `승률 : ${cnt*10}%`;
+            }
+        }
+    </script>
+</body>
+</html>

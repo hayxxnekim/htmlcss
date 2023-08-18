@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>가위 바위 보 게임 10번의 승률 출력</h3>
+    <button type="button" id="btn">승률 출력</button>
+    <h3>
+        10게임의 승률은 <span id="result"> </span> % 입니다.
+    </h3>
+
+    <script>
+        // 가위 바위 보는 com => 랜덤, player => 랜덤
+        // 승률 계산 (승리 / (10-무))*100
+        // 1=가위, 2=바위, 3=보
+
+        const btn = document.getElementById('btn');
+        btn.onclick = function(){
+            let comResult = 0;
+            let PlyaerResult = 0;
+
+            let same = 0;
+            let Win = 0;
+            let lost = 0;
+
+            for(let i=1; i<=10; i++){
+                 let com = Math.floor(Math.random()*(3))+1;
+                 let player = Math.floor(Math.random()*(3))+1;
+
+                 console.log(com);
+                 console.log(player);
+
+                 switch(com){
+                    case 1 : comResult = 1; break;
+                    case 2 : comResult = 2; break;
+                    case 3 : comResult = 3; break;
+                 }
+                 switch(player){
+                    case 1 : PlyaerResult = 1; break;
+                    case 2 : PlyaerResult = 2; break;
+                    case 3 : PlyaerResult = 3; break;
+                 }
+                 if(comResult==PlyaerResult){
+                    same++;
+                    } else if(comResult==1 && PlyaerResult==2){ // 1=가위, 2=바위, 3=보
+                        Win++;
+                    } else if(comResult==1 && PlyaerResult==3){
+                        lost++;
+                    } else if(comResult==2 && PlyaerResult==1){
+                        lost++;
+                    } else if(comResult==2 && PlyaerResult==3){
+                        Win++;
+                    } else if(comResult==3 && PlyaerResult==1){
+                        Win++;
+                    } else if(comResult==3 && PlyaerResult==2){
+                        lost++;
+                    }
+                }
+
+                document.getElementById('result').innerHTML = Math.floor(`${ Win / (10 - same) * 100 }`) ;
+            }                
+
+    </script>
+</body>
+</html>

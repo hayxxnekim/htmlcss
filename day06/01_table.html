@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table 속성</title>
+    <!-- 표에 css 넣기 -->
+    <style>
+        table{
+            /* border: 1px solid black; */
+            border-collapse: collapse;
+        }
+        th, td{
+            border: 1px dashed black;
+            width: 150px;
+            height: 30px;
+            text-align: center;
+            border-left: none;
+            border-right: none;
+        }
+        thead{
+            background-color: cyan;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+        }
+        tfoot{
+            border-bottom: 2px solid black;
+            background-color: paleturquoise;
+        }
+        tbody>tr:nth-child(2n){
+            background-color: paleturquoise;
+        }
+        tbody>tr:hover{
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>국어</th>
+                <th>영어</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>김봄</td>
+                <td>78</td>
+                <td>89</td>
+            </tr>
+            <tr>
+                <td>김여름</td>
+                <td>48</td>
+                <td>59</td>
+            </tr>
+            <tr>
+                <td>김가을</td>
+                <td>78</td>
+                <td>48</td>
+            </tr>
+            <tr>
+                <td>김겨울</td>
+                <td>69</td>
+                <td>93</td>
+            </tr>
+            <tr>
+                <td>김기타</td>
+                <td>98</td>
+                <td>78</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td>합계</td>
+                <td>100</td>
+                <td>100</td>
+            </tr>
+        </tfoot>   
+    </table>
+</body>
+</html>

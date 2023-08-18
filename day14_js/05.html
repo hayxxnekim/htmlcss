@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규 표현식</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- 
+        input 파일에 파일명.확장자를 입력하여 전송 버튼을 누르면
+        이미지 파일인지 검사하여
+        이미지 파일이면
+        '정상파일입니다.' <초록색>
+        이미지 파일이 아니면
+        '이미지 파일만 가능합니다' <빨간색>
+        출력하기
+        이미지파일 : jpg, png, jpeg, gif
+        - 대문자로 된 확장자명도 판단 가능해야 함
+     -->
+     <input type="text" id="fileInput">
+     <button type="button" onclick="pass()">전송</button>
+     <h3 id="result"></h3>
+     <script>
+        let input = '';
+        // const fileArr = [];
+        function pass(){
+            input = document.getElementById('fileInput').value;
+            // fileArr.push(input);
+            // console.log(input);
+            
+
+            if(input.match(/(jpg|jpeg|png|gif)/i)){
+               document.getElementById('result').innerHTML = "<div>정상파일입니다.</div>";
+               result.style.setProperty("color","green");
+            }else{
+                document.getElementById('result').innerHTML = "<div>이미지 파일만 가능합니다.</div>";
+                result.style.setProperty("color","red");
+            }
+        }
+    
+     </script>
+</body>
+</html>ㅇ   

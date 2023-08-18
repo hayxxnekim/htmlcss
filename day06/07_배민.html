@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배달의 민족</title>
+    <style>
+        @font-face {
+            font-family: jua;
+            src: url(/font/Jua-Regular.ttf);
+        }
+        body{
+            font-family: jua;
+            background-color: paleturquoise;
+        }
+        div{
+            text-align: center;
+        }
+        .header{
+            margin: 50px;
+        }
+        .header>h1{
+            font-size: 50px;
+        }
+        .header>h3{
+            font-size: 35px;
+        }
+        .menu{
+            width: 300px;
+            background-color: white;
+            margin: auto;
+            border-radius: 10px;
+            margin-bottom: 50px;
+        }
+        .menu>div:first-child{
+            /* 그림 영역 */
+            width: 300px;
+            height: 200px;
+            background-size: 300px 200px;
+            border-radius: 10px 10px 0px 0px;
+            background-color: cyan;
+        }
+        .menu>div>h4{
+            font-size: 25px;
+        }
+        .menu>div:last-child{
+            padding: 20px;
+        }
+        .menu>div>p:last-child{
+            color: blue;
+        }
+        #sushi{
+            background-image: url(sushi.jpg);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>배달의 민족</h1>
+        <h3>넌 배달할 때가 제일 멋있어</h3>
+    </div>
+    <div class="menu">
+        <div id="sushi"></div>
+        <div>
+            <h4>맛있는 초밥</h4>
+            <p>
+                주머니가 가벼운 당신의 마음까지 생각한 착한 가격!
+            </p>
+            <p><del>25,000원</del> 15,000원</p>
+            <p>바로 결제</p>
+
+        </div>
+    </div>
+</body>
+</html>

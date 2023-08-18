@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>itemList</title>
+    <style>
+        /* 전체 */
+        *{
+            box-sizing: border-box;
+        }
+        #wapper{
+            width: 600px;
+            margin: 0 auto;
+        }
+        h2{
+            text-align: center;
+        }
+        form{
+            text-align: center;
+            background-color: aquamarine;
+            color: white;
+            padding: 30px 40px;
+        }
+        input{
+            border: none;
+            outline: none;
+            /* 인라인 블록이라 가능 */
+            width: 450px;
+            font-size: 15px;
+            padding: 10px;
+        }
+        button{
+            padding: 10px;
+            width: 50px;
+            border: none;
+            background-color: aliceblue;
+            box-shadow: 2px 2px 5px gray;
+            cursor: pointer;
+        }
+        ul{
+            /* 기본 마진, 패딩 제거 */
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul li{
+            cursor: pointer;
+            padding: 12px 8px 12px 40px;
+            background-color: paleturquoise;
+            font-size: 18px;
+            position: relative;
+        }
+
+        ul li:nth-child(odd){
+            background-color: whitesmoke;
+        }
+
+        ul li:hover{
+            background-color: aquamarine;
+        }
+
+        .close{
+            /*  ul li 기준 absolute */
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 12px 20px;
+        }
+
+        .close:hover{
+            background-color: azure;
+        }
+    </style>
+</head>
+<body>
+    <div id="wapper">
+        <h2>여행 준비물 점검 목록</h2>
+        <form action="">
+            <!-- autofocus : 깜빡깜빡 -->
+            <input type="text" id="item" autofocus="true">
+            <button type="button" id="add">추가</button>
+        </form>
+        <div>
+            <ul id="itemList"></ul>
+        </div>
+    </div>
+    <script>
+        let itemList = [];
+        let addBtn = document.getElementById('add'); // add 버튼 객체로 가져오기
+
+        addBtn.addEventListener('click',addList);
+
+        function addList(){
+            // item 추가 function
+            let item = document.getElementById('item').value;
+            if(item!=null){ // null이 아닐 경우에만
+                itemList.push(item);
+                // 값이 추가되고 난 후 input 값을 초기화
+                document.getElementById('item').value = '';
+                // 추가 후 포커스 얻기
+                document.getElementById('item').focus();
+            }
+            console.log(itemList);
+            showList();
+        }
+
+        function showList(){
+            // item 표시 function(화면에 뿌리는 역할)
+            let list = '';
+            for(let i=0; i<itemList.length; i++){
+                list += `<li id="list${i}">${itemList[i]}<span class="close" id="${i}">X</span></li>`
+            }
+            // 리스트 내용 표시(for문에서 리스트 내용 누적)
+            document.getElementById('itemList').innerHTML = list;
+
+
+            //close의 배열 형태로 추가
+            //close라는 클래스들을 가지는 모든 셀렉터들을 remove에 모으기
+            let remove = document.querySelectorAll('.close');
+            console.log(remove);
+            // remove 버튼을 클릭하면 removeList()를 호출
+            for(let i=0; i<remove.length; i++){
+                remove[i].addEventListener('click',removeList); // 각각의 i번지마다 이벤트 리스너 등록
+            }
+        }
+
+        function removeList(){
+            // item 삭제 function
+            let id = this.getAttribute('id'); // this(클릭한 버튼)
+            console.log(id);
+            itemList.splice(id,1); // splice => id번지의 값 1개를 잘라내기
+            console.log(itemList);
+            showList(); // 잘라냈으니까 다시 뿌리기
+        }
+
+    </script>
+</body>
+</html>

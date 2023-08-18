@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이중 For문</title>
+    <style>
+        .toR{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        구구단 2~9단까지 출력하기
+    </h1>
+    <button type="button" onclick="gugudan()">구구단 출력</button>
+    <h3 id="print"></h3>
+    <script>
+        function gugudan() {
+            for(let dan=2; dan<10; dan++){
+                for(let incre=1; incre<10; incre++){
+                    document.getElementById('print').innerHTML += `<div>${dan}*${incre}=${dan*incre}</div>`;
+                }
+                // document.getElementById('print').innerHTML += `<div><br></div>`;
+                print.classList.add('toR');
+            }
+        }
+    </script>
+</body>
+</html>

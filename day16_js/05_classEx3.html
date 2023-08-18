@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("---예제---");
+        //class User 생성
+        //생성자로 name, birth를 받아서 멤버변수로 저장
+        //age() 나이를 리턴
+        //status() 성인인지 미성년자인지 콘솔에 출력
+        //생성자에서 선언된 값을 리턴시...
+        // get age(){
+        //     return this._age; // _내부속성이다 라는 뜻
+        // }
+        let birthday = new Date('2009-01-01');
+        console.log(birthday.toLocaleDateString());
+
+        class User{
+            constructor(name, birth){
+                this.name = name;
+                this.birth = birth;
+            }
+           get age(){
+                let birthday = new Date(this.birth);
+                let todayYear = new Date().getFullYear(); //오늘날짜 연도
+                return todayYear - birthday.getFullYear();
+            }
+            status(){
+                let age = this.age;
+                if(age <20){
+                    console.log('미성년자');
+                }else{
+                    console.log('성인');
+                }
+            }
+        }
+
+        let hong = new User('hong','85-01-01');
+        //메서드일경우 (), get일경우는 ()X
+        console.log(hong.age);
+        hong.status();
+    </script>
+</body>
+</html>

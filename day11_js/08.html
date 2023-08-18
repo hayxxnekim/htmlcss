@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이중 For문</title>
+    <style>
+        .toR {
+            display: inline-block; 
+            margin-top: 30px;
+            margin-right: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        구구단 2~9단까지 출력하기
+    </h1>
+    <button type="button" onclick="gugudan()">구구단 출력</button>
+    <div id="print"></div> 
+    <script>
+        function gugudan() {
+            let gugu = document.getElementById('print');
+            gugu.innerHTML = ''; // 기존 단 제거
+            for (let dan = 2; dan < 10; dan++) {
+                let gugudan = `<div class="toR">`;
+                for (let incre = 1; incre < 10; incre++) {
+                    gugudan += `<div>${dan}*${incre}=${dan * incre}</div>`;
+                }
+                gugudan += `</div>`;
+                gugu.innerHTML += gugudan;
+            }
+        }
+    </script>
+</body>
+</html>

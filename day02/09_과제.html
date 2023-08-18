@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 연습문제</title>
+    <style>
+        #n {
+            background-color: greenyellow;
+            color: darkgreen;
+            font-size: 30px;
+        }
+        #n:active {
+            color: white;
+        }
+        #n:visited {
+            color: wheat;
+        }
+        .g {
+            color: red;
+            font-style: italic;
+        }
+        div>a {
+            color : skyblue;
+        }
+
+        ul>li:first-child, li:last-child{
+            font-weight: 900;
+        }
+        ul>li{
+            font-size: 30px;
+            list-style: none;
+            display: inline;
+            margin-right: 20px;
+        }
+        ul>li:nth-child(3n){
+            color: darkgreen;
+        }
+        ul>li:nth-child(even) {
+            color : cyan;
+        }
+        ul>li:hover{
+            color: azure;
+        }
+
+        /* 
+        ::after : 뒤에 붙이는 가상 값
+        ::before : 전에 붙이는 가상 값
+        */
+        li::after{
+            content: " 번째";
+        }
+
+        li::before{
+            content: "li ";
+        }
+        
+    </style>
+</head>
+<body>
+    <div>
+        <a href="http://www.naver.com" id="n">naver</a>
+
+    </div>
+    
+    <div>
+        <a href="www.google.com" class="g">google</a>
+     </div>
+
+     <div>
+        <a href="http://www.daum.net">daum</a>
+     </div>
+
+     <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+     </ul>
+    <!-- 
+        div 3개를 만들어
+        naver, google, daum 사이트로 연결되게 하고,
+        각 div는 색깔과 모양을 달리 스타일 주기.
+        color : 글자색
+        background-color : 면색
+        폰트 관련 스타일들.
+
+        링크 클릭했는지에 따라서 글꼴 색이 달라지는 가상선택자가 있음.
+        (의사선택자)
+        a:link(방문전)
+        a:active(클릭할때 색)
+        a:visited(링크를 눌러본 후 색)
+     -->
+     <!-- 
+        ul -> li 태그 10개 생성
+        전체 글자 크기 크게(일정하게..)
+        짝수 : 색 변경
+        3, 6, 9 : 초록색
+        1, 10 : 굵게
+        :hover
+      -->
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <!-- input type과 실제 input값은 관계X -->
+        <form action="">
+            <fieldset>
+                <legend>합계 평균 출력</legend>
+                이름: <input type="text" id="name"><br> 
+                국어: <input type="number" id="kor"><br>
+                영어: <input type="number" id="eng"><br>
+                수학: <input type="number" id="math"><br>
+                <button type="button" onclick="sumavg()">합계 평균 계산</button>
+            </fieldset>
+        </form>
+        <h3 id="calc"></h3>
+    <script>
+        //  이름, 국어, 영어, 수학 점수를 입력받아
+        // 합계와 평균을 출력
+        function sumavg(){
+            let name = document.getElementById('name').value;
+            let kor = document.getElementById('kor').value;
+            let eng = document.getElementById('eng').value;
+            let math = document.getElementById('math').value;
+            console.log(`입력값 : ${name}, ${kor}, ${eng}, ${math}`);
+
+            kor = Number(kor);
+            eng = Number(eng);
+            math = Number(math);
+
+            let sum = kor+eng+math;
+            let avg = Math.round(sum / 3); // 정수 단위로 반올림
+            
+            // calc.innerText = `name : ${name}`;
+            // calc.innerText += ` kor : ${kor}`;
+            // calc.innerText += ` eng : ${eng}`;
+            // calc.innerText += ` math : ${math}`;
+            calc.innerHTML += `<li>sum : ${sum}</li>`;
+            calc.innerHTML += `<li>avg : ${avg}</li>`;
+
+            
+        }
+    </script>
+</body>
+</html>

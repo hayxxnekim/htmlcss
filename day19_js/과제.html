@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="/day03/main.jpg" alt=""  width="300px" height="400px" id="img">
+</body>
+<script>
+    const imgs= ["/day03/main.jpg", "/day03/ny.jpeg", "/day03/paris.jpeg", "/day03/se.jpeg", "/day03/sh.jpeg", "/day03/tk.jpeg"]
+    let image;
+    function ranImg(){
+        let ran = Math.floor(Math.random()*6);
+        img.src = imgs[ran];
+    }
+    function changeImg(){
+        image = setInterval(ranImg,300);
+        }
+    
+    changeImg();
+</script>
+</html>
